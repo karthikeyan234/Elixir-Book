@@ -1,0 +1,14 @@
+<TasksAppWeb.TaskComponents.form_header title="Edit Task" subtitle="Make your changes below." />
+
+<.simple_form :let={f} for={@changeset} as={:task} action={~p"/tasks/#{@task.id}"} method="put">
+  <.input field={f[:title]} type="text" label="Title" required />
+  <.input field={f[:description]} type="textarea" label="Description" />
+
+  <:actions>
+    <.button>Update Task</.button>
+  </:actions>
+</.simple_form>
+
+<div class="mt-4">
+  <.link navigate={~p"/tasks/#{@task.id}"}>← Back to task details</.link>
+</div>
